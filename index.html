@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- css link -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- fontAwesome cdn -->
+    <script defer src="https://use.fontawesome.com/releases/v5.8.1/js/all.js"
+        integrity="sha384-g5uSoOSBd7KkhAMlnQILrecXvzst9TdC09/VM+pjDTCM+1il8RHz5fKANTFFb+gQ"
+        crossorigin="anonymous"></script>
+    <!-- jQuery link -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- plotly.js cdn -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <!-- driver script link -->
+    <script src="actions.js"></script>
+    <title>avery's app</title>
+</head>
+<body>
+    <div id="titleBar">
+        <button id="title">
+            statFire
+            <i class="fas fa-fire"></i>
+        </button>
+        <div id="nav">
+            <button class="navBar" id="search">
+                <i class="fas fa-search"></i>
+            </button>
+            <button class="navBar" id="github">
+                <i class="fab fa-github"></i>
+            </button>
+        </div>
+    </div>
+    <div id="searchDiv" style="display: none;">
+        <input type="text" name="searchBar" id="searchBar">
+    </div>
+    <div id="mainWrapper">
+        <div id="leftPanel"></div>
+        <div id="content">
+            <div id="plots" style="width:90%;height:250px;"></div>
+        </div>
+        <div id="rightPanel"></div>
+    </div>
+</body>
+</html>
