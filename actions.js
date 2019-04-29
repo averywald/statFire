@@ -1,7 +1,12 @@
 
-
 // onload driver
 $(document).ready(function() {
+
+    // home button
+    $("#title").click(() => {
+        // be sure to add correct server URL
+        window.location.replace('/index.php');
+    });
 
     // click search icon to open search bar panel
     $("#search").click(() => {
@@ -13,12 +18,15 @@ $(document).ready(function() {
         let win = window.open('https://www.github.com/averywald/statFire');
         if (win) win.focus();
         else alert('please allow popups to view github repo');
-    })
+    });
 
-    Plotly.plot('plots', [{
-        x: [1, 2, 3, 4, 5],
-        y: [1, 2, 4, 8, 16] }], {
-            margin: { t: 0 }
+    $("#basketBall").click(() => {
+        getTeams();
+        graph();
+    });
+
+    $("#haha").click(() => {
+        // $(this).next().slideToggle('swing');
     });
 
 });
