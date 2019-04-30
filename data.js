@@ -5,7 +5,7 @@
 function getTeams() {
     var teams = [];
     $.getJSON('assets/data/nbaTeams.json', (data) => {
-        $.each(data.league.standard, (key, val) => {
+        $.each(data.league.standard, (_key, val) => {
             if (val.isNBAFranchise) {
                 teams.push(val);
             }
@@ -15,31 +15,53 @@ function getTeams() {
 
 // ajax request - returns all players on a team as objects
 function getRoster(tricode) {
+    let roster = [];
     $.getJSON('assets/data/nbaStats.json', (data) => {
-        $.each(data, (k, v) => {
+        $.each(data, (_k, v) => {
             if (v.team == tricode) {
-                console.log(v);
+                roster.push(v);
             }
         });
     });
+    return roster;
+}
+
+function gp(player, data) {
+    let obj = {};
+    data.forEach(o => {
+        if (o.name == player) {
+            obj = o;
+        }
+    });
+    graph(obj);
 }
 
 // ajax request - returns specific player as object
 function getPlayer(player) {
-    $.getJSON('assets/data/nbaStats.json', (data) => {
-        $.each(data, (k, v) => {
-            if (v.name == player) {
-                console.log(v);
-            }
-        });
+    $.ajax({
+        url: 'assets/data/nbaStats.json',
+        dataType: 'json',
+        method: 'GET',
+        success: function(data) {
+            gp(player, data);
+        },
+        error: () => console.log('error')
     });
 }
 
-function graph(team) {
+// ============================================================================
+
+function graph(o) {
+
+    console.log(o);
+
     var data = [{
-        x: ['Raptors', 'Bucks', 'Warriors'],
-        y: [24.4, 31.2, 44.4],
+        x: ['orb', 'drb', 'ast'],
+        y: [o.orb, o.drb, o.ast],
         type: 'bar'
-    }]; 
-    Plotly.newPlot('plots', data);
+    }];
+    var layout = [{
+        title: o.name
+    }];
+    Plotly.plot('plots', data, layout);
 }

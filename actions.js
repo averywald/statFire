@@ -8,6 +8,10 @@ $(document).ready(function() {
         window.location.replace('/index.php');
     });
 
+    $("#login").click(() => {
+        window.location.replace('/login/login.php');
+    });
+
     // click search icon to open search bar panel
     $("#search").click(() => {
         $("#searchDiv").slideToggle('swing');
@@ -21,12 +25,7 @@ $(document).ready(function() {
     });
 
     $("#basketBall").click(() => {
-        getTeams();
-        graph();
-    });
-
-    $("#haha").click(() => {
-        // $(this).next().slideToggle('swing');
+        getPlayer('Russell Westbrook');
     });
 
 });
