@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <!-- css link -->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="stylesheets/styles.css">
     <!-- fontAwesome cdn -->
     <script defer src="https://use.fontawesome.com/releases/v5.8.1/js/all.js"
         integrity="sha384-g5uSoOSBd7KkhAMlnQILrecXvzst9TdC09/VM+pjDTCM+1il8RHz5fKANTFFb+gQ"
@@ -13,8 +13,8 @@
     <!-- plotly.js cdn -->
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
-    <script src="data.js"></script>
-    <script src="actions.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/actions.js"></script>
     <title>statFire</title>
 </head>
 <body>
