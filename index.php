@@ -14,6 +14,7 @@
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
     <script src="js/data.js"></script>
+    <script src="js/graph.js"></script>
     <script src="js/actions.js"></script>
     <title>statFire</title>
 </head>
