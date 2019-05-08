@@ -1,0 +1,16 @@
+button.link {
+  width: 15vw;
+  height: 5vh;
+  text-align: left;
+  border: none;
+  background-color: transparent;
+  color: white;
+  font-size: 1vw;
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+}
+
+button.link:hover, button.link.active {
+  background-color: rgba(31, 31, 31, 0.406);
+}
+/*# sourceMappingURL=links.css.map */

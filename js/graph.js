@@ -1,13 +1,21 @@
 
 // creates plotly data visualization from json
-function graph(o) {
+function graphPlayer(o) {
     var data = [{
-        x: ['orb', 'drb', 'ast'],
-        y: [o.orb, o.drb, o.ast],
+        name: o.name,
+        x: ['3-pointers', '2-pointers', 'assists'],
+        y: [o['3p'], o['2p'], o.ast],
         type: 'bar'
     }];
-    var layout = [{
-        title: o.name
+    Plotly.plot('plots', data);
+}
+
+function graphAccuracy(o) {
+    var data = [{
+        name: o.name,
+        x: [],
+        y: [],
+        type: 'pie'
     }];
-    Plotly.plot('plots', data, layout);
+    Plotly.plot('plots', data);
 }

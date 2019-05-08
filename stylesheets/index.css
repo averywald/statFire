@@ -1,0 +1,173 @@
+html {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0;
+  color: #9d9d9d;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background: url("/assets/images/Flare.jpg");
+}
+
+html body {
+  margin: 0;
+}
+
+html div#titleBar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  width: 100vw;
+  height: 10vh;
+  z-index: 100;
+  background-color: transparent;
+}
+
+html div#titleBar button#title, html div#titleBar button#login {
+  margin: 0 2vw;
+  padding: 0;
+  color: white;
+  font-size: 2.5vw;
+  background: transparent;
+  border: transparent;
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+}
+
+html div#titleBar button#title .fa-fire, html div#titleBar button#login .fa-fire {
+  color: #ff5900;
+}
+
+html div#titleBar button#title:hover, html div#titleBar button#login:hover {
+  color: #2d2e30;
+}
+
+html div#searchDiv {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 10vh;
+  width: 100vw;
+  height: 10vh;
+  background-color: #2d2e30;
+}
+
+html div#searchDiv input#searchBar {
+  width: 40vw;
+  height: 8vh;
+  color: #9d9d9d;
+  font-size: 2em;
+  border: none;
+  border-bottom: 2px solid #9d9d9d;
+  background-color: transparent;
+}
+
+html div#mainWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+html div#mainWrapper div#leftPanel, html div#mainWrapper div#rightPanel {
+  width: 15vw;
+  height: 90vh;
+}
+
+html div#mainWrapper div#content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: none;
+      -ms-flex-align: none;
+          align-items: none;
+  height: 70vh;
+  width: 100vw;
+}
+
+html div#mainWrapper div#content h1 {
+  font-size: 7em;
+  margin: 5vh 0 3vh 2vw;
+  color: white;
+  text-shadow: 0px 0px 10px rgba(31, 31, 31, 0.228);
+}
+
+html div#mainWrapper div#content h2 {
+  font-size: 2em;
+  margin: 0 0 0 2vw;
+  color: white;
+  text-shadow: 0px 0px 10px rgba(31, 31, 31, 0.228);
+}
+
+html div#mainWrapper div#content div#plots, html div#mainWrapper div#content div#new {
+  width: 70vw;
+  height: 65vh;
+  background-color: #e6e6e6;
+  -webkit-box-shadow: 0 0 20px 5px rgba(31, 31, 31, 0.228);
+          box-shadow: 0 0 20px 5px rgba(31, 31, 31, 0.228);
+}
+
+html div#footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100vw;
+  height: 20vh;
+  bottom: 0;
+  background-color: #2d2e30;
+}
+
+html div#footer button {
+  width: 100vw;
+  color: white;
+  font-size: 2.5vw;
+  background: transparent;
+  border: transparent;
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+  color: #e6e6e6;
+  transition: .3s ease;
+}
+
+html div#footer button:hover {
+  color: #ff5900;
+}
+/*# sourceMappingURL=index.css.map */

@@ -2,7 +2,7 @@
 $wolfGrey: #9d9d9d;
 
 $gunMetal: rgb(70, 71, 73);
-$gunMetalAlpha: rgba(31, 31, 31, 0.406);
+$gunMetalAlpha: rgba(31, 31, 31, 0.228);
 
 $charCoal: rgb(45, 46, 48);
 $fireRed: rgb(255, 89, 0);
@@ -30,63 +30,16 @@ $offWhite: rgb(230, 230, 230);
     border: transparent;
 
     transition: .3s ease;
-
-     &:hover {
-        color: $gunMetal;
-    }
-}
-
-button.link {
-    @include flexRowCenter(true, true);
-    justify-content: space-between;
-
-    padding: 0 2vw;
-
-    width: 15vw;
-    height: 5vw;
-
-    font-size: 2em;
-
-    color: $charCoal;
-
-    background: transparent;
-    border: transparent;
-
-    transition: .3s ease;
-
-    &:hover, &:active {
-        color: $offWhite;
-        background-color: $fireRed;
-    }
-}
-
-button.navBar {
-    margin: 0;
-    width: 10vw;
-
-    @include slickButtons();
 }
 
 html {
     display: flex;
     margin: 0;
-    background: url('/assets/images/Flare.jpg');
-    color: white;
-    font-family: -apple-system, 
-        BlinkMacSystemFont, 
-        'Segoe UI', 
-        Roboto, 
-        Oxygen, 
-        Ubuntu, 
-        Cantarell, 
-        'Open Sans', 
-        'Helvetica Neue', 
-        sans-serif;
 
-    p { 
-        font-size: 3vw;
-        margin: 2vh;
-    }
+    color: #9d9d9d;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+    background: url('/assets/images/Flare.jpg');
 
     body {
         margin: 0;
@@ -94,7 +47,7 @@ html {
 
     div#titleBar {
         @include flexRowCenter($align: true);
-        justify-content: space-around;
+        justify-content: space-between;
         position: sticky;
 
         top: 0;
@@ -102,12 +55,10 @@ html {
         height: 10vh;
         z-index: 100;
 
-        // background-color: $gunMetal;
-        background: url('/assets/images/Flare.jpg');
-        opacity: 0.85;
+        background-color: transparent;
 
-        button#title {
-            margin: 0;
+        button#title, button#login {
+            margin: 0 2vw;
             padding: 0;
 
             @include slickButtons();
@@ -115,14 +66,10 @@ html {
             .fa-fire { 
                 color: $fireRed;
             }
-        }
-
-        div#nav {
-            @include flexRowCenter($align: true);
-        }
-
-        button#login {
-            @include slickButtons();
+            
+            &:hover {
+                color: $charCoal;
+            }
         }
     }
 
@@ -131,26 +78,22 @@ html {
         justify-content: center;
         position: sticky;
         top: 10vh;
-        z-index: 100;
+
         width: 100vw;
         height: 10vh;
-        background-color: $gunMetalAlpha;
+        background-color: $charCoal;
 
         input#searchBar {
+
             width: 40vw;
             height: 8vh;
 
-            color: white;
+            color: $wolfGrey;
             font-size: 2em;
 
             border: none;
-            border-bottom: 2px solid white;
+            border-bottom: 2px solid $wolfGrey;
             background-color: transparent;
-        }
-
-        button#searchButton {
-            @include slickButtons();
-            transition: .3s ease;
         }
     }
 
@@ -159,44 +102,35 @@ html {
         flex-direction: row;
 
         div#leftPanel {
-            // display: flex;
-            // flex-direction: column;
-            // justify-content: center;
-
             width: 15vw;
             height: 90vh;
-            overflow: scroll;
         }
 
         div#content {
-            @include flexRowCenter($row: false, $align: true);
-            justify-content: space-evenly;
-            width: 70vw;
-            background-color: $offWhite;
+            @include flexRowCenter($row: false, $align: false);
+
+            height: 70vh;
+            width: 100vw;
 
             h1 {
-                font-size: 5em;
+                font-size: 7em;
+                margin: 5vh 0 3vh 2vw;
                 color: white;
                 text-shadow: 0px 0px 10px $gunMetalAlpha;
             }
 
-            div#plotModules {
+            h2 {
+                font-size: 2em;
+                margin:0 0 0 2vw;
+                color: white;
+                text-shadow: 0px 0px 10px $gunMetalAlpha;
+            }
+
+            div#plots {
                 width: 70vw;
-                display: flex;
-                flex-direction: row;
+                height: 65vh;
                 background-color: $offWhite;
-
-                div#plots {
-                    width: 35vw;
-                    height: 80vh;
-                    background-color: $offWhite;
-                }
-
-                div#bios {
-                    width: 35vw;
-                    height: 80vh;
-                }
-
+                box-shadow: 0 0 20px 5px $gunMetalAlpha;
             }
 
             div#new {
@@ -206,7 +140,6 @@ html {
 
         div#rightPanel {
             @extend #leftPanel;
-            // text-align: right;
         }
     }
 
@@ -215,12 +148,20 @@ html {
 
         width: 100vw;
         height: 20vh;
+        bottom: 0;
         
         background-color: $charCoal;
 
         button {
             width: 100vw;
             @include slickButtons();
+            color: $offWhite;
+
+            transition: .3s ease;
+
+            &:hover {
+                color: $fireRed;
+            }
         }
     }
 }
