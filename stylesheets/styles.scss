@@ -1,0 +1,231 @@
+
+$wolfGrey: #9d9d9d;
+
+$gunMetal: rgb(70, 71, 73);
+$gunMetalAlpha: rgba(31, 31, 31, 0.406);
+
+$charCoal: rgb(45, 46, 48);
+$fireRed: rgb(255, 89, 0);
+$offWhite: rgb(230, 230, 230);
+
+@mixin flexRowCenter($row: true, $align: true) {
+    display: flex;
+    @if $row {
+        flex-direction: row;
+    } @else {
+        flex-direction: column;
+    }
+    @if $align {
+        align-items: center;
+    } @else {
+        align-items: none;
+    }
+}
+
+@mixin slickButtons {
+    color: white;
+    font-size: 2.5vw;
+
+    background: transparent;
+    border: transparent;
+
+    transition: .3s ease;
+
+     &:hover {
+        color: $gunMetal;
+    }
+}
+
+button.link {
+    @include flexRowCenter(true, true);
+    justify-content: space-between;
+
+    padding: 0 2vw;
+
+    width: 15vw;
+    height: 5vw;
+
+    font-size: 2em;
+
+    color: $charCoal;
+
+    background: transparent;
+    border: transparent;
+
+    transition: .3s ease;
+
+    &:hover, &:active {
+        color: $offWhite;
+        background-color: $fireRed;
+    }
+}
+
+button.navBar {
+    margin: 0;
+    width: 10vw;
+
+    @include slickButtons();
+
+    &.active {
+        color: $charCoal;
+    }
+}
+
+html {
+    display: flex;
+    margin: 0;
+    background: url('/assets/images/Flare.jpg');
+    color: white;
+    font-family: -apple-system, 
+        BlinkMacSystemFont, 
+        'Segoe UI', 
+        Roboto, 
+        Oxygen, 
+        Ubuntu, 
+        Cantarell, 
+        'Open Sans', 
+        'Helvetica Neue', 
+        sans-serif;
+
+    p { 
+        font-size: 3vw;
+        margin: 2vh;
+    }
+
+    body {
+        margin: 0;
+    }
+
+    div#titleBar {
+        @include flexRowCenter($align: true);
+        justify-content: space-around;
+        position: sticky;
+
+        top: 0;
+        width: 100vw;
+        height: 10vh;
+        z-index: 100;
+
+        // background-color: $gunMetal;
+        background: url('/assets/images/Flare.jpg');
+        opacity: 0.85;
+
+        button#title {
+            margin: 0;
+            padding: 0;
+
+            @include slickButtons();
+
+            .fa-fire { 
+                color: $fireRed;
+            }
+        }
+
+        div#nav {
+            @include flexRowCenter($align: true);
+        }
+
+        button#login {
+            @include slickButtons();
+        }
+    }
+
+    div#searchDiv {
+        @include flexRowCenter($align: true);
+        justify-content: center;
+        position: sticky;
+        top: 10vh;
+        z-index: 100;
+        width: 100vw;
+        height: 10vh;
+        background-color: $gunMetalAlpha;
+
+        input#searchBar {
+            width: 40vw;
+            height: 8vh;
+
+            color: white;
+            font-size: 2em;
+
+            border: none;
+            border-bottom: 2px solid white;
+            background-color: transparent;
+        }
+
+        button#searchButton {
+            @include slickButtons();
+            transition: .3s ease;
+        }
+    }
+
+    div#mainWrapper {
+        display: flex;
+        flex-direction: row;
+
+        div#leftPanel {
+            // display: flex;
+            // flex-direction: column;
+            // justify-content: center;
+
+            width: 15vw;
+            height: 90vh;
+            overflow: scroll;
+        }
+
+        div#content {
+            @include flexRowCenter($row: false, $align: true);
+            // justify-content: space-around;
+            width: 70vw;
+            // background-color: $offWhite;
+
+            h1 {
+                font-size: 5em;
+                color: white;
+                text-shadow: 0px 0px 10px $gunMetalAlpha;
+            }
+
+            div#plotModules {
+                width: 70vw;
+                height: 85vh;
+                display: flex;
+                flex-direction: row;
+                background-color: white;
+
+                div#plots {
+                    width: 70vw;
+                    height: 80vh;
+                    background-color: white;
+                }
+
+                // div#bios {
+                //     width: 35vw;
+                //     height: 80vh;
+                // }
+
+            }
+
+            div#new {
+                @extend div#plots;
+            }
+        }
+
+        div#rightPanel {
+            @extend #leftPanel;
+            // text-align: right;
+        }
+    }
+
+    div#footer {
+        @include flexRowCenter($row: true, $align: true);
+
+        width: 100vw;
+        height: 20vh;
+        
+        background-color: $charCoal;
+
+        button {
+            width: 100vw;
+            @include slickButtons();
+        }
+    }
+}

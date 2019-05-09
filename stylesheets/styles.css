@@ -1,0 +1,268 @@
+button.link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0 2vw;
+  width: 15vw;
+  height: 5vw;
+  font-size: 2em;
+  color: #2d2e30;
+  background: transparent;
+  border: transparent;
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+}
+
+button.link:hover, button.link:active {
+  color: #e6e6e6;
+  background-color: #ff5900;
+}
+
+button.navBar {
+  margin: 0;
+  width: 10vw;
+  color: white;
+  font-size: 2.5vw;
+  background: transparent;
+  border: transparent;
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+}
+
+button.navBar:hover {
+  color: #464749;
+}
+
+button.navBar.active {
+  color: #2d2e30;
+}
+
+html {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0;
+  background: url("/assets/images/Flare.jpg");
+  color: white;
+  font-family: -apple-system,  BlinkMacSystemFont,  'Segoe UI',  Roboto,  Oxygen,  Ubuntu,  Cantarell,  'Open Sans',  'Helvetica Neue',  sans-serif;
+}
+
+html p {
+  font-size: 3vw;
+  margin: 2vh;
+}
+
+html body {
+  margin: 0;
+}
+
+html div#titleBar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  width: 100vw;
+  height: 10vh;
+  z-index: 100;
+  background: url("/assets/images/Flare.jpg");
+  opacity: 0.85;
+}
+
+html div#titleBar button#title {
+  margin: 0;
+  padding: 0;
+  color: white;
+  font-size: 2.5vw;
+  background: transparent;
+  border: transparent;
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+}
+
+html div#titleBar button#title:hover {
+  color: #464749;
+}
+
+html div#titleBar button#title .fa-fire {
+  color: #ff5900;
+}
+
+html div#titleBar div#nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+html div#titleBar button#login {
+  color: white;
+  font-size: 2.5vw;
+  background: transparent;
+  border: transparent;
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+}
+
+html div#titleBar button#login:hover {
+  color: #464749;
+}
+
+html div#searchDiv {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 10vh;
+  z-index: 100;
+  width: 100vw;
+  height: 10vh;
+  background-color: rgba(31, 31, 31, 0.406);
+}
+
+html div#searchDiv input#searchBar {
+  width: 40vw;
+  height: 8vh;
+  color: white;
+  font-size: 2em;
+  border: none;
+  border-bottom: 2px solid white;
+  background-color: transparent;
+}
+
+html div#searchDiv button#searchButton {
+  color: white;
+  font-size: 2.5vw;
+  background: transparent;
+  border: transparent;
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+  transition: .3s ease;
+}
+
+html div#searchDiv button#searchButton:hover {
+  color: #464749;
+}
+
+html div#mainWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+html div#mainWrapper div#leftPanel, html div#mainWrapper div#rightPanel {
+  width: 15vw;
+  height: 90vh;
+  overflow: scroll;
+}
+
+html div#mainWrapper div#content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 70vw;
+}
+
+html div#mainWrapper div#content h1 {
+  font-size: 5em;
+  color: white;
+  text-shadow: 0px 0px 10px rgba(31, 31, 31, 0.406);
+}
+
+html div#mainWrapper div#content div#plotModules {
+  width: 70vw;
+  height: 85vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  background-color: white;
+}
+
+html div#mainWrapper div#content div#plotModules div#plots, html div#mainWrapper div#content div#plotModules div#new {
+  width: 70vw;
+  height: 80vh;
+  background-color: white;
+}
+
+html div#footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100vw;
+  height: 20vh;
+  background-color: #2d2e30;
+}
+
+html div#footer button {
+  width: 100vw;
+  color: white;
+  font-size: 2.5vw;
+  background: transparent;
+  border: transparent;
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+}
+
+html div#footer button:hover {
+  color: #464749;
+}
+/*# sourceMappingURL=styles.css.map */
