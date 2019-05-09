@@ -1,4 +1,10 @@
 <?php
+    // if session variables not set
+    if (!isset($_SESSION['username']) || !isset($_SESSION['password'])) {
+        // redirect to login page
+        header('Location: /login/login.php');
+        exit;
+    }
 ?>
 
 <!DOCTYPE html>
@@ -52,14 +58,19 @@
         <div class="panel" id="leftPanel"></div>
         <div id="content">
             <div id="tabWrapper">
-                <button class="tab" id="clearGraph">clear</button>
-                <button class="tab" id="totals">totals</button>
-                <button class="tab" id="teamAvg">team avg</button>
                 <button class="tab" id="posAvg">pos avg</button>
+                <button class="tab" id="teamAvg">team avg</button>
+                <button class="tab" id="totals">totals</button>            
             </div>
             <div id="plotModules">
-                <div class="module" id="plots"></div>
-                <div class="module" id="bios"></div>
+                <div id="toolBar">
+                    <button class="tool" id="clearGraph">clear</button>
+                </div>
+                <div class="module" id="plots">
+                    <div class="plot" id="totalsPlot" style="z-index: 0"></div>
+                    <div class="plot" id="teamAvgPlot" style="z-index: 1"></div>
+                    <div class="plot" id="posAvgPlot" style="z-index: 2"></div>
+                </div>
             </div>
         </div>
         <div class="panel" id="rightPanel"></div>
