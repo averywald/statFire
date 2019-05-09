@@ -48,7 +48,7 @@ function findPlayer(player, data) {
             obj = o;
         }
     });
-    graphPlayer(obj);
+    standardGraph(obj, 'totalsPlot');
 }
 
 function findRoster(code, data) {
@@ -59,12 +59,16 @@ function findRoster(code, data) {
             roster.push(p);
         }
     });
-    average(roster, '3p');
-    yo(roster);
+    // graph team averages
+    teamAverage(roster);
+    // display players in the right panel
     displayRoster(roster);
 }
 
-function yo(roster) {
+function teamAverage(roster) {
+    // get team tricode
+    let teamName = roster[0].team.slice(0, 4);
+    // filter relevant stats for each player
     roster.forEach(obj => {
         // LoDash returns in alphanumeric order
         roster[obj] = _.pick(obj, [
@@ -91,21 +95,20 @@ function yo(roster) {
             'pts'
             ]);
     });
-    console.log(roster);
+    // compile team averages of all stat categories
     var avgs = roster.reduce((mean, obj) => {
         Object.keys(obj).forEach(key => {
             mean[key] = (mean[key] || 0) + obj[key] / roster.length;
         });
         return mean;
     }, {});
-
-    graphPlayer(avgs);
+    // display in graph
+    standardGraph(avgs, 'teamAvgPlot', teamName);
 }
 
-function average(roster, param) {
-    let avg = roster.reduce((acc, player) => acc + player[param], 0) / roster.length;
-    // console.log(avg);
-}
+// function average(roster, param) {
+//     let avg = roster.reduce((acc, player) => acc + player[param], 0) / roster.length;
+// }
 
 function findTeams(data) {
     let teams = [];
@@ -132,11 +135,6 @@ function getPlayer(player) {
 function getRoster(tricode) {
     request(tricode, findRoster);
 }
-
-// ajax request to json file - returning object of all NBA teams' data
-// function getTeam(team) {
-//     // request(team, );
-// }
 
 function getAllTeams() {
     $.ajax({

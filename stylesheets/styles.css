@@ -86,7 +86,6 @@ html div#titleBar {
   height: 10vh;
   z-index: 100;
   background: url("/assets/images/Flare.jpg");
-  opacity: 0.85;
 }
 
 html div#titleBar button#title {
@@ -223,17 +222,52 @@ html div#mainWrapper div#content div#plotModules {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
+  -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+      -ms-flex-direction: column;
+          flex-direction: column;
   background-color: white;
 }
 
-html div#mainWrapper div#content div#plotModules div#plots, html div#mainWrapper div#content div#plotModules div#new {
+html div#mainWrapper div#content div#plotModules div#toolBar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: .75vw;
+}
+
+html div#mainWrapper div#content div#plotModules button.tool {
+  width: 5vw;
+  height: 2.5vw;
+  border: 2px solid #ff5900;
+  background-color: transparent;
+  color: #ff5900;
+  font-size: 1.5vw;
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+}
+
+html div#mainWrapper div#content div#plotModules button.tool:hover {
+  background-color: #ff5900;
+  color: white;
+}
+
+html div#mainWrapper div#content div#plotModules div#plots, html div#mainWrapper div#content div#plotModules div.plot, html div#mainWrapper div#content div#plotModules div#new {
   width: 70vw;
   height: 80vh;
   background-color: white;
+}
+
+html div#mainWrapper div#content div#plotModules div.plot {
+  height: 79vh;
+  position: absolute;
+  color: black;
 }
 
 html div#footer {
@@ -247,6 +281,7 @@ html div#footer {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  bottom: 0;
   width: 100vw;
   height: 20vh;
   background-color: #2d2e30;

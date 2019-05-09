@@ -155,12 +155,12 @@ html {
         button {
             width: 100vw;
             @include slickButtons();
-            color: $offWhite;
+            color: $gunMetal;
 
             transition: .3s ease;
 
             &:hover {
-                color: $fireRed;
+                color: white;
             }
         }
     }
