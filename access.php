@@ -1,8 +1,11 @@
 <?php
+
+    session_start();
+
     // if session variables not set
     if (!isset($_SESSION['username']) || !isset($_SESSION['password'])) {
         // redirect to login page
-        header('Location: /login/login.php');
+        header('Location: ../index.php');
         exit;
     }
 ?>

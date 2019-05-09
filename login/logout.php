@@ -1,8 +1,10 @@
 <?php
 
     session_start();
-    unset($_SESSION['username']);
-    unset($_SESSION['password']);
+    // destroy session variables
+    session_destroy();
+
+    // redirect to login page
     header('Location: /login/login.php');
     exit;
     

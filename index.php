@@ -1,10 +1,15 @@
+<?php
+    // begin session
+    session_start();
+?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <!-- css link -->
-    <link rel="stylesheet" href="stylesheets/index.css">
+    <link rel="stylesheet" href="../stylesheets/index.css">
+    <link rel="stylesheet" href="../stylesheets/login.css">
     <!-- fontAwesome cdn -->
     <script defer src="https://use.fontawesome.com/releases/v5.8.1/js/all.js"
         integrity="sha384-g5uSoOSBd7KkhAMlnQILrecXvzst9TdC09/VM+pjDTCM+1il8RHz5fKANTFFb+gQ"
@@ -14,7 +19,7 @@
     <!-- plotly.js cdn -->
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
-    <script src="js/actions.js"></script>
+    <script src="../js/actions.js"></script>
     <title>statFire</title>
 </head>
 <body>
@@ -25,18 +30,16 @@
                 <i class="fas fa-fire"></i>
             </button>
         </div>
-        <div class="tb-wrapper" id="signin">
-            <button class="navBar" id="login">
-                login
-            </button>
-        </div>
     </div>
     <div id="mainWrapper">
         <div id="content">
-            <!-- <iframe src="https://youtube.com/embed/jqZuL39dHfQ?autoplay=1& controls=0" frameborder="0"></iframe> -->
-            <!-- <h1>welcome to statFire</h1>
-            <h2>a premier stat visualizer tool for NBA players and teams</h2>
-            <h2>log in to experience the power of data visualization</h2> -->
+            <form action="/login/handleLogin.php" method="POST">
+                <input type="text" name="username" class="inputField" placeholder="username">
+                <span style="display: none;" class="error" id="username">incorrect username</span>
+                <input type="password" name="password" class="inputField" placeholder="password">
+                <span style="display: none;" class="error" id="password">incorrect password</span>
+                <input type="submit" name="submitButton" id="submitButton" value="log in">
+            </form>
         </div>
     </div>
     <div id="footer">
