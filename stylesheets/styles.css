@@ -43,6 +43,10 @@ button.navBar:hover {
   color: #464749;
 }
 
+button.navBar.active {
+  color: #2d2e30;
+}
+
 html {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -204,11 +208,7 @@ html div#mainWrapper div#content {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
   width: 70vw;
-  background-color: #e6e6e6;
 }
 
 html div#mainWrapper div#content h1 {
@@ -219,6 +219,7 @@ html div#mainWrapper div#content h1 {
 
 html div#mainWrapper div#content div#plotModules {
   width: 70vw;
+  height: 85vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -226,18 +227,13 @@ html div#mainWrapper div#content div#plotModules {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  background-color: #e6e6e6;
+  background-color: white;
 }
 
 html div#mainWrapper div#content div#plotModules div#plots, html div#mainWrapper div#content div#plotModules div#new {
-  width: 35vw;
+  width: 70vw;
   height: 80vh;
-  background-color: #e6e6e6;
-}
-
-html div#mainWrapper div#content div#plotModules div#bios {
-  width: 35vw;
-  height: 80vh;
+  background-color: white;
 }
 
 html div#footer {

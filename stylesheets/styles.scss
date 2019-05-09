@@ -65,6 +65,10 @@ button.navBar {
     width: 10vw;
 
     @include slickButtons();
+
+    &.active {
+        color: $charCoal;
+    }
 }
 
 html {
@@ -170,9 +174,9 @@ html {
 
         div#content {
             @include flexRowCenter($row: false, $align: true);
-            justify-content: space-evenly;
+            // justify-content: space-around;
             width: 70vw;
-            background-color: $offWhite;
+            // background-color: $offWhite;
 
             h1 {
                 font-size: 5em;
@@ -182,20 +186,21 @@ html {
 
             div#plotModules {
                 width: 70vw;
+                height: 85vh;
                 display: flex;
                 flex-direction: row;
-                background-color: $offWhite;
+                background-color: white;
 
                 div#plots {
-                    width: 35vw;
+                    width: 70vw;
                     height: 80vh;
-                    background-color: $offWhite;
+                    background-color: white;
                 }
 
-                div#bios {
-                    width: 35vw;
-                    height: 80vh;
-                }
+                // div#bios {
+                //     width: 35vw;
+                //     height: 80vh;
+                // }
 
             }
 

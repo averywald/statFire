@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <!-- css link -->
     <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/toolbar.css">
+    <link rel="stylesheet" href="stylesheets/tabs.css">
     <link rel="stylesheet" href="stylesheets/links.css">
     <!-- fontAwesome cdn -->
     <script defer src="https://use.fontawesome.com/releases/v5.8.1/js/all.js"
@@ -17,6 +17,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- plotly.js cdn -->
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <!-- LoDash cdn -->
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.11/lodash.min.js"></script>
 
     <script src="js/data.js"></script>
     <script src="js/graph.js"></script>
@@ -33,7 +35,7 @@
         </div>
         <div class="tb-wrapper" id="nav">
             <button class="navBar" id="teams">teams</button>
-            <button class="navBar" id="players">players</button>
+            <!-- <button class="navBar" id="players">players</button> -->
             <button class="navBar" id="search">search</button>
         </div>
         <div class="tb-wrapper" id="signin">
@@ -47,21 +49,20 @@
         </button>
     </div>
     <div id="mainWrapper">
-        <div id="leftPanel"></div>
+        <div class="panel" id="leftPanel"></div>
         <div id="content">
-            <div id="toolBar">
-                <button class="tools" id="clearGraph">clear</button>
-                <button class="tools">yo</button>
-                <button class="tools">yo</button>
-                <button class="tools">yo</button>
-                <button class="tools">yo</button>
+            <div id="tabWrapper">
+                <button class="tab" id="clearGraph">clear</button>
+                <button class="tab" id="totals">totals</button>
+                <button class="tab" id="teamAvg">team avg</button>
+                <button class="tab" id="posAvg">pos avg</button>
             </div>
             <div id="plotModules">
                 <div class="module" id="plots"></div>
                 <div class="module" id="bios"></div>
             </div>
         </div>
-        <div id="rightPanel"></div>
+        <div class="panel" id="rightPanel"></div>
     </div>
     <div id="footer">
         <button class="navBar" id="github">

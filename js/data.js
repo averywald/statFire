@@ -1,4 +1,6 @@
 
+const positions = ['PG', 'SG', 'SF', 'PF', 'C'];
+
 // ajax request 
 //      - gateway to filter functions
 //      - passes ajax response data to callback
@@ -15,11 +17,11 @@ function request(target, callback) {
 }
 
 function displayRoster(roster) {
-    // console.log($("#rightPanel").children().length);
     if ($("#rightPanel").children().length == 0) {
         $("#rightPanel").append("<p class='linkHeader'>Players</p>");
+
         roster.forEach(p => {
-            $("#rightPanel").append("<button class='link' id=\" " + p.name + " \">" + p.name + "</button>");
+            $("#rightPanel").append("<button class='link'>" + p.name + "</button>");
         });
     }
 }
@@ -27,6 +29,7 @@ function displayRoster(roster) {
 function displayTeams(teams) {
     if ($("#leftPanel").children().length == 0) {
         $("#leftPanel").append("<p class='linkHeader'>Teams</p>");
+
         teams.forEach(team => {
                 $("#leftPanel").append("<button class='link' id=" + team.tricode + ">" + team.fullName + "</button>");
         });
@@ -54,21 +57,55 @@ function findRoster(code, data) {
         // account for space in tricode on json file (????)
         if (p.team == ' ' + code) {
             roster.push(p);
-            console.log(p);
         }
     });
+    average(roster, '3p');
+    yo(roster);
     displayRoster(roster);
 }
 
-// function findTeam(team, data) {
-//     let t = {};
-//     data.forEach(o => {
-//         if (o.tricode == team) {
-//             t = o;
-//         }
-//     });
-//     graphTeam(t);
-// }
+function yo(roster) {
+    roster.forEach(obj => {
+        // LoDash returns in alphanumeric order
+        roster[obj] = _.pick(obj, [
+            'fg',
+            'fga',
+            'fgp',
+            '3p',
+            '3pa',
+            '3pPct',
+            '2p',
+            '2pa',
+            '2pPct',
+            'efgPct',
+            'ft',
+            'fta',
+            'ftPct',
+            'orb',
+            'drb',
+            'ast',
+            'stl',
+            'blk',
+            'tov',
+            'pf',
+            'pts'
+            ]);
+    });
+    console.log(roster);
+    var avgs = roster.reduce((mean, obj) => {
+        Object.keys(obj).forEach(key => {
+            mean[key] = (mean[key] || 0) + obj[key] / roster.length;
+        });
+        return mean;
+    }, {});
+
+    graphPlayer(avgs);
+}
+
+function average(roster, param) {
+    let avg = roster.reduce((acc, player) => acc + player[param], 0) / roster.length;
+    // console.log(avg);
+}
 
 function findTeams(data) {
     let teams = [];
