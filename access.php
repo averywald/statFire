@@ -63,11 +63,11 @@
             <div id="tabWrapper">
                 <button class="tab" id="posAvg">pos avg</button>
                 <button class="tab" id="teamAvg">team avg</button>
-                <button class="tab" id="totals">totals</button>            
+                <button class="tab" id="totals">player totals</button>            
             </div>
             <div id="plotModules">
                 <div id="toolBar">
-                    <button class="tool" id="clearGraph">clear</button>
+                    <button class="tool" id="clearGraph">clear tab</button>
                 </div>
                 <div class="module" id="plots">
                     <div class="plot" id="totalsPlot" style="z-index: 0"></div>

@@ -251,12 +251,13 @@ html div#mainWrapper div#content div#plotModules {
 }
 
 html div#mainWrapper div#content div#plotModules div#toolBar {
+  display: inline-block;
   height: 8vh;
   white-space: nowrap;
   overflow: scroll;
 }
 
-html div#mainWrapper div#content div#plotModules div#toolBar button.tool {
+html div#mainWrapper div#content div#plotModules div#toolBar button.tool, html div#mainWrapper div#content div#plotModules div#toolBar button#clearGraph {
   height: 5vh;
   margin: .5vw;
   border: 2px solid #ff5900;
@@ -267,9 +268,29 @@ html div#mainWrapper div#content div#plotModules div#toolBar button.tool {
   transition: .3s ease;
 }
 
-html div#mainWrapper div#content div#plotModules div#toolBar button.tool:hover {
+html div#mainWrapper div#content div#plotModules div#toolBar button.tool:hover, html div#mainWrapper div#content div#plotModules div#toolBar button#clearGraph:hover {
   background-color: #ff5900;
   color: white;
+}
+
+html div#mainWrapper div#content div#plotModules div#toolBar button#clearGraph {
+  border: 2px solid #2d2e30;
+  color: #2d2e30;
+}
+
+html div#mainWrapper div#content div#plotModules div#toolBar button#clearGraph:hover {
+  background-color: #2d2e30;
+}
+
+html div#mainWrapper div#content div#plotModules div#toolBar div#history {
+  display: block;
+  width: 60vw;
+}
+
+html div#mainWrapper div#content div#plotModules div#toolBar p {
+  margin: 0;
+  font-size: 2vw;
+  color: black;
 }
 
 html div#mainWrapper div#content div#plotModules div#plots, html div#mainWrapper div#content div#plotModules div.plot, html div#mainWrapper div#content div#plotModules div#new {

@@ -21,10 +21,14 @@ function manageClear(total = false) {
     else $('#rightPanel').empty();
 }
 
+function removeTools(id) {
+    $("#toolBar").children('.' + id).remove();
+}
+
 // show the correct plot model based on current active tab
-function showModule() {
+function showModule(manualTab = undefined) {
     // get string for jquery selector of active tab
-    let tab = '#' + $("#tabWrapper").find('.tab.active').attr('id') + 'Plot';
+    let tab = (manualTab) ? '#' + manualTab : '#' + $("#tabWrapper").find('.tab.active').attr('id') + 'Plot';
     // send non-active tabs below in z-index
     $(".plot").not($(tab)).css('z-index', '0');
     // send active tab to top of z-index
@@ -95,15 +99,25 @@ $(document).ready(function() {
 
     // clear graph of active tab
     $("#clearGraph").click(() => {
+        // get the module id
         let target = $("#tabWrapper > .active").attr('id') + 'Plot';
+        // clear graph on corresponding module
         Plotly.purge(target);
+        // remove tool buttons on active tab
+        removeTools(target);
     });
 
-    // delete graph trace corresponding to button
-    // $(".tool").click((e) => {
-    //     let yo = $("#" + e.target.id).attr('class').split(' ')[1];
-    //     console.log(yo);
-    // });
+    // open up tab corresponding to the button clicked
+    $("#toolBar").on('click', '.tool', (e) => {
+        // get linked module id from clicked button
+        let target = $(e.target).attr('class').split(' ')[1];
+        // further split string to get target tab id
+        let t = target.split('P')[0];
+        // activate the corresponding tab
+        manageActives('.tab', '#' + t);
+        // show the corresponding module
+        showModule();
+    });
 
 // panels =====================================================================
 

@@ -196,6 +196,7 @@ html {
                 background-color: white;
 
                 div#toolBar {
+                    display: inline-block;
                     height: 8vh;
                     white-space: nowrap;
                     overflow: scroll;
@@ -213,6 +214,27 @@ html {
                             background-color: $fireRed;
                             color: white;
                         }
+                    }
+
+                    button#clearGraph {
+                        @extend button.tool;
+                        border: 2px solid $charCoal;
+                        color: $charCoal;
+
+                        &:hover {
+                            background-color: $charCoal;
+                        }
+                    }
+
+                    div#history {
+                        display: block;
+                        width: 60vw;
+                    }
+
+                    p { 
+                        margin: 0;
+                        font-size: 2vw;
+                        color: black; 
                     }
                 }
 
