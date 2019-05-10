@@ -42,9 +42,9 @@ $(document).ready(function() {
 
     // home button - manage home page link relative to login portal
     $("#title").click(() => {
-        if (window.location.href == 'http://localhost:5501/access.php') {
+        if (window.location.href == 'http://ec2-52-14-240-140.us-east-2.compute.amazonaws.com/access.php') {
             window.location.replace('/access.php');
-        } else window.location.replace('http://localhost:5501/index.php');
+        } else window.location.replace('http://ec2-52-14-240-140.us-east-2.compute.amazonaws.com/index.php');
     });
 
     // logout redirect

@@ -1,0 +1,20 @@
+
+div.blurb {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100vw;
+    height: 50vw;
+    background-color: rgb(228, 228, 228);
+}
+
+div.parallax {
+    @extend div.blurb;
+    background-image: url(/assets/images/giannis.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 0 0 100vw 90vw rgba(254, 105, 6, 0.692) inset;
+}

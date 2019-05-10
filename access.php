@@ -32,7 +32,7 @@
     <script src="js/data.js"></script>
     <script src="js/graph.js"></script>
     <script src="js/actions.js"></script>
-    <title>statFire</title>
+    <title>statFire - dashboard</title>
 </head>
 <body>
     <div id="titleBar">

@@ -1,13 +1,19 @@
 
 form {
-    margin: 10vh;
+    // margin: 10vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
-    span.error {
-        color: rgb(252, 73, 73);
+    p {
+        position: relative;
+        padding: 2vh 4vw;
+        background-color: red;
+        color: white;
+        font-size: 2em;
+        border-radius: 5px;
+        box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.365);
     }
 
     input.inputField {
