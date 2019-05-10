@@ -163,11 +163,11 @@ html div#footer button {
   border: transparent;
   -webkit-transition: .3s ease;
   transition: .3s ease;
-  color: #e6e6e6;
+  color: #464749;
   transition: .3s ease;
 }
 
 html div#footer button:hover {
-  color: #ff5900;
+  color: white;
 }
 /*# sourceMappingURL=index.css.map */
