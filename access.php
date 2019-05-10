@@ -37,14 +37,14 @@
 <body>
     <div id="titleBar">
         <div class="tb-wrapper">
-            <button id="title">
+            <button class="navBar" id="title">
                 statFire
                 <i class="fas fa-fire"></i>
             </button>
         </div>
         <div class="tb-wrapper" id="nav">
-            <button class="navBar" id="teams">teams</button>
-            <!-- <button class="navBar" id="players">players</button> -->
+            <button class="navBar linker" id="teams">teams</button>
+            <button class="navBar linker" id="positions">positions</button>
             <button class="navBar" id="search">search</button>
         </div>
         <div class="tb-wrapper" id="signin">

@@ -1,9 +1,7 @@
 
 $wolfGrey: #9d9d9d;
-
 $gunMetal: rgb(70, 71, 73);
 $gunMetalAlpha: rgba(31, 31, 31, 0.406);
-
 $charCoal: rgb(45, 46, 48);
 $fireRed: rgb(255, 89, 0);
 $offWhite: rgb(230, 230, 230);
@@ -62,7 +60,8 @@ button.link {
 
 button.navBar {
     margin: 0;
-    width: 10vw;
+    width: 15vw;
+    justify-content: center;
 
     @include slickButtons();
 
@@ -98,7 +97,7 @@ html {
 
     div#titleBar {
         @include flexRowCenter($align: true);
-        justify-content: space-around;
+        justify-content: space-between;
         position: sticky;
 
         top: 0;
@@ -106,8 +105,20 @@ html {
         height: 10vh;
         z-index: 100;
 
-        // background-color: $gunMetal;
         background: url('/assets/images/Flare.jpg');
+
+        div.tb-wrapper {
+            width: 30vw;
+        }
+
+        div#signin {
+            display: flex;
+            justify-content: flex-end;
+
+            button {
+                padding: 0;
+            }
+        }
 
         button#title {
             margin: 0;
@@ -161,11 +172,7 @@ html {
         display: flex;
         flex-direction: row;
 
-        div#leftPanel {
-            // display: flex;
-            // flex-direction: column;
-            // justify-content: center;
-
+        div.panel {
             width: 15vw;
             height: 90vh;
             overflow: scroll;
@@ -173,9 +180,7 @@ html {
 
         div#content {
             @include flexRowCenter($row: false, $align: true);
-            // justify-content: space-around;
             width: 70vw;
-            // background-color: $offWhite;
 
             h1 {
                 font-size: 5em;
@@ -191,24 +196,23 @@ html {
                 background-color: white;
 
                 div#toolBar {
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    padding: .75vw;
-                }
+                    height: 8vh;
+                    white-space: nowrap;
+                    overflow: scroll;
 
-                button.tool {
-                    width: 5vw;
-                    height: 2.5vw;
+                    button.tool {
+                    height: 5vh;
+                    margin: .5vw;
                     border: 2px solid $fireRed;
                     background-color: transparent;
                     color: $fireRed;
                     font-size: 1.5vw;
                     transition: .3s ease;
 
-                    &:hover {
-                        background-color: $fireRed;
-                        color: white;
+                        &:hover {
+                            background-color: $fireRed;
+                            color: white;
+                        }
                     }
                 }
 
@@ -220,7 +224,7 @@ html {
 
                 div.plot {
                     @extend div#plots;
-                    height: 79vh;
+                    height: 65vh;
                     position: absolute;
                     color: black;
                 }
@@ -230,11 +234,6 @@ html {
             div#new {
                 @extend div#plots;
             }
-        }
-
-        div#rightPanel {
-            @extend #leftPanel;
-            // text-align: right;
         }
     }
 

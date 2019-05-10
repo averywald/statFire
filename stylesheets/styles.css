@@ -30,7 +30,10 @@ button.link:hover, button.link:active {
 
 button.navBar {
   margin: 0;
-  width: 10vw;
+  width: 15vw;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   color: white;
   font-size: 2.5vw;
   background: transparent;
@@ -77,8 +80,9 @@ html div#titleBar {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   position: -webkit-sticky;
   position: sticky;
   top: 0;
@@ -86,6 +90,23 @@ html div#titleBar {
   height: 10vh;
   z-index: 100;
   background: url("/assets/images/Flare.jpg");
+}
+
+html div#titleBar div.tb-wrapper {
+  width: 30vw;
+}
+
+html div#titleBar div#signin {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+html div#titleBar div#signin button {
+  padding: 0;
 }
 
 html div#titleBar button#title {
@@ -190,7 +211,7 @@ html div#mainWrapper {
           flex-direction: row;
 }
 
-html div#mainWrapper div#leftPanel, html div#mainWrapper div#rightPanel {
+html div#mainWrapper div.panel {
   width: 15vw;
   height: 90vh;
   overflow: scroll;
@@ -230,21 +251,14 @@ html div#mainWrapper div#content div#plotModules {
 }
 
 html div#mainWrapper div#content div#plotModules div#toolBar {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding: .75vw;
+  height: 8vh;
+  white-space: nowrap;
+  overflow: scroll;
 }
 
-html div#mainWrapper div#content div#plotModules button.tool {
-  width: 5vw;
-  height: 2.5vw;
+html div#mainWrapper div#content div#plotModules div#toolBar button.tool {
+  height: 5vh;
+  margin: .5vw;
   border: 2px solid #ff5900;
   background-color: transparent;
   color: #ff5900;
@@ -253,7 +267,7 @@ html div#mainWrapper div#content div#plotModules button.tool {
   transition: .3s ease;
 }
 
-html div#mainWrapper div#content div#plotModules button.tool:hover {
+html div#mainWrapper div#content div#plotModules div#toolBar button.tool:hover {
   background-color: #ff5900;
   color: white;
 }
@@ -265,7 +279,7 @@ html div#mainWrapper div#content div#plotModules div#plots, html div#mainWrapper
 }
 
 html div#mainWrapper div#content div#plotModules div.plot {
-  height: 79vh;
+  height: 65vh;
   position: absolute;
   color: black;
 }

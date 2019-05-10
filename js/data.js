@@ -1,9 +1,35 @@
 
 const positions = ['PG', 'SG', 'SF', 'PF', 'C'];
 
-// ajax request 
-//      - gateway to filter functions
-//      - passes ajax response data to callback
+function average(roster, isTeam = false) {
+    // check if averaging team or position
+    let n = (isTeam) ? roster[0].team.slice(0, 4) : roster[0].pos.substr(1);
+    // check for correct container to graph to
+    let c = (isTeam) ? 'teamAvgPlot' : 'posAvgPlot';
+
+    // filter relevant stats for each player
+    roster.forEach(obj => {
+        // LoDash returns in alphanumeric order
+        roster[obj] = _.pick(obj, [
+            'fg', 'fga', 'fgp', '3p', '3pa',
+            '3pPct', '2p', '2pa', '2pPct',
+            'efgPct', 'ft', 'fta', 'ftPct',
+            'orb', 'drb', 'ast', 'stl',
+            'blk', 'tov', 'pf', 'pts'
+        ]);
+    });
+    // compile team averages of all stat categories
+    var avgs = roster.reduce((mean, obj) => {
+        Object.keys(obj).forEach(key => {
+            mean[key] = (mean[key] || 0) + obj[key] / roster.length;
+        });
+        return mean;
+    }, {});
+    // display in graph
+    standardGraph(avgs, c, n);
+}
+
+// ajax request with custom search target and callback to handle data
 function request(target, callback) {
     $.ajax({
         url: 'assets/data/nbaStats.json',
@@ -14,6 +40,16 @@ function request(target, callback) {
         },
         error: () => console.log('error')
     });
+}
+
+function displayPositions() {
+    if ($("#leftPanel").children().length == 0) {
+        $("#leftPanel").append("<p class='linkHeader'>Positions</p>");
+
+        positions.forEach(p => {
+            $("#leftPanel").append("<button class='link position' id=" + p + ">" + p + "</button>");
+        });
+    }
 }
 
 function displayRoster(roster) {
@@ -41,6 +77,17 @@ function displayTeams(teams) {
 //      - filter ajax request
 //      - graphs data appropriately
 
+function findByPosition(position, data) {
+    let players = data.filter((p) => {
+        // account for dumb space in json value
+        if (p.pos == ' ' + position) {
+            return p;
+        }
+    });
+    average(players);
+    displayRoster(players);
+}
+
 function findPlayer(player, data) {
     let obj = {};
     data.forEach(o => {
@@ -60,55 +107,10 @@ function findRoster(code, data) {
         }
     });
     // graph team averages
-    teamAverage(roster);
+    average(roster, true);
     // display players in the right panel
     displayRoster(roster);
 }
-
-function teamAverage(roster) {
-    // get team tricode
-    let teamName = roster[0].team.slice(0, 4);
-    // filter relevant stats for each player
-    roster.forEach(obj => {
-        // LoDash returns in alphanumeric order
-        roster[obj] = _.pick(obj, [
-            'fg',
-            'fga',
-            'fgp',
-            '3p',
-            '3pa',
-            '3pPct',
-            '2p',
-            '2pa',
-            '2pPct',
-            'efgPct',
-            'ft',
-            'fta',
-            'ftPct',
-            'orb',
-            'drb',
-            'ast',
-            'stl',
-            'blk',
-            'tov',
-            'pf',
-            'pts'
-            ]);
-    });
-    // compile team averages of all stat categories
-    var avgs = roster.reduce((mean, obj) => {
-        Object.keys(obj).forEach(key => {
-            mean[key] = (mean[key] || 0) + obj[key] / roster.length;
-        });
-        return mean;
-    }, {});
-    // display in graph
-    standardGraph(avgs, 'teamAvgPlot', teamName);
-}
-
-// function average(roster, param) {
-//     let avg = roster.reduce((acc, player) => acc + player[param], 0) / roster.length;
-// }
 
 function findTeams(data) {
     let teams = [];
@@ -124,12 +126,18 @@ function findTeams(data) {
 //      - functions used in actions.js
 //      - simplify ajax request interface
 
-// function getAllPlayers() {
-// }
-
 // get single player stats
 function getPlayer(player) {
     request(player, findPlayer);
+}
+
+function getPlayersByPosition(pos) {
+    request(pos, findByPosition);
+}
+
+// get list of positions to display
+function getPositions() {
+    displayPositions();
 }
 
 function getRoster(tricode) {

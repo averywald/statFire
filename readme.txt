@@ -3,12 +3,13 @@ statFire documentation & cs2830 final project criteria description
 
 1. HTML5 & CSS3
     - 5 required tags
+        - access.php
         - index.php
     - CSS3
-        - styles.css
+        - stylesheets folder
 
     * i used sass when writing, but sass has to be compiled into
-    css, since it's not a web-standard.
+    css, since it's not a web standard.
         - 'Live Sass Compiler' VS Code extension is insanely helpful
             - https://github.com/ritwickdey/vscode-live-sass-compiler
 

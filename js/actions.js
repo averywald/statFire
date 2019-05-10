@@ -15,7 +15,9 @@ function manageActives(containter, target) {
 
 // clears the side panels
 function manageClear(total = false) {
+    // clear both side panels
     if (total) $('.panel').empty();
+    // just empty right panel
     else $('#rightPanel').empty();
 }
 
@@ -41,7 +43,7 @@ $(document).ready(function() {
         } else window.location.replace('http://localhost:5501/index.php');
     });
 
-    // logout redirects
+    // logout redirect
     $("#logout").click(() => window.location.replace('index.php'));
 
     // click search icon to open search bar panel
@@ -63,24 +65,45 @@ $(document).ready(function() {
     });
 
     // manage teams list
-    $("#teams").click(() => {
-        $("#teams").toggleClass('active');
-        if ($("#teams").hasClass('active')) getAllTeams();
-        else manageClear(true);
+    $("#teams").click((e) => {
+        manageActives('.linker', e.target);
+        if ($("#teams").hasClass('active')) {
+            manageClear(true);
+            // display teams list in left panel
+            getAllTeams();
+        }
+    });
+
+    // manage positions list
+    $("#positions").click((e) => {
+        manageActives('.linker', e.target);
+        if ($("#positions").hasClass('active')) {
+            manageClear(true);
+            // display positions list in left panel
+            getPositions();
+        } 
     });
 
 // tabs =======================================================================
-
-    $("#clearGraph").click(() => {
-
-        // revise
-        Plotly.purge('');
-    });
 
     $(".tab").click((e) => {
         manageActives('.tab', e.target);
         showModule();
     });
+
+// toolbar ====================================================================
+
+    // clear graph of active tab
+    $("#clearGraph").click(() => {
+        let target = $("#tabWrapper > .active").attr('id') + 'Plot';
+        Plotly.purge(target);
+    });
+
+    // delete graph trace corresponding to button
+    // $(".tool").click((e) => {
+    //     let yo = $("#" + e.target.id).attr('class').split(' ')[1];
+    //     console.log(yo);
+    // });
 
 // panels =====================================================================
 
@@ -88,13 +111,21 @@ $(document).ready(function() {
     $("#leftPanel").on('click', '.link', (e) => {
         // clear previous / all rosters
         manageClear();
-        // generate team roster in right
-        getRoster(e.target.id);
         // activate team button on left panel
         manageActives('#leftPanel > .link', e.target);
-        // activate team average tab
-        manageActives('.tab', '#teamAvg');
-        // activate team avg module
+        // if position navbar button is active
+        if ($(e.target).attr('class') == 'link position active') {
+            // activate position average tab
+            manageActives('.tab', '#posAvg');
+            // generate players at selected position
+            getPlayersByPosition(e.target.id);
+        } else {
+            // activate team average tav
+            manageActives('.tab', '#teamAvg');
+            // generate team roster in right side panel
+            getRoster(e.target.id);
+        }
+        // activate respective module
         showModule();
     });
 

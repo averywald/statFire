@@ -1,8 +1,16 @@
 
+// add clear button for each entity graphed
+function addTool(c, n) {
+    let name;
+    if (n[0] == ' ') name = n.substr(1);
+    else name = n;
+    $("#toolBar").append('<button class="tool ' + c + '" id="' + name + '">' + name + '</button>');
+}
+
 // creates plotly data visualization from json
-function standardGraph(o, container, teamName = undefined) {
-    // check if teamName arg was provided
-    let name = (_.isUndefined(teamName)) ? o.name: teamName;
+function standardGraph(o, container, n = undefined) {
+    // check if n arg was provided
+    let name = (_.isUndefined(n)) ? o.name: n;
     // plotly.js data var
     var data = [{
         name: name,
@@ -22,4 +30,6 @@ function standardGraph(o, container, teamName = undefined) {
     }];
     // generate graph
     Plotly.plot(container, data, {responsive: true});
+    // add clear button for entity to toolbar
+    addTool(container, name);
 }
